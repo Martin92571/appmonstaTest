@@ -4,9 +4,12 @@ function init() {
     $('#dbInfoButton').click(getData);
     $('#apiInfoButton').click(insertDBfromAPI);
 }
-
+var num=0;
+for(var x=0;x<150;x++){
+    insertDBfromAPI();
+}
 function insertDBfromAPI() {
- 
+  num++
     //var url = "https://api.appmonsta.com/v1/stores/android/details/com.atomicadd.fotos.json?country=US" ;
     var url = "https://api.appmonsta.com/v1/stores/android/details/us.koller.cameraroll.json?country=US";
     $.ajax({
@@ -20,16 +23,16 @@ function insertDBfromAPI() {
         //     action: 'readAll'
         // },
         success: function(APIresponse) {
-            console.log('response is ', APIresponse);
+            console.log(`response is ${num} `, APIresponse);
             //console.log('name', response['app_name']);
-            //generateDOM(response.data);
+              //generateDOM(response.data);
             insertIntoDB(APIresponse);
         //     for(var i=0; i<response.data.length; i++) {
         //         generateDOM(response.data[i]);          
         //   }
         },
         error: function () {
-            console.log('server not response');    
+            console.log(`no more request ${num} `);    
         }
     });
 
