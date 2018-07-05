@@ -1,3 +1,3 @@
 <?php
-$conn =mysqli_connect("localhost", "root", "root", "gameFinder");
+$conn =mysqli_connect("localhost", "root", "root", "appmonsta_dv");
 ?>
